@@ -2,6 +2,7 @@ import * as React from "react"
 import AvatarIcon from "../AvatarIcon/AvatarIcon"
 import { formatLikes } from "../../utils/format"
 import { useState } from "react"
+import { RetweetPopUp } from "../RetweetPopUp/RetweetPopUp"
 import "./Tweet.css"
 
 export default function Tweet({ tweet }) {
@@ -39,8 +40,13 @@ export function TweetUserInfo({ name, handle }) {
 
 export function TweetFooter({ numComments, numRetweets, numLikes }) {
   const [likes, setLikes] = useState(numLikes)
+  const [retweet, setRetweet] = useState(numRetweets)
+  const [openRetweetPopUp, setOpenRetweetPopUp] = useState(false)
   const handleOnClickLike = () => {
     setLikes(likes + 1)
+  }
+  const handleOnClickRetweet = () => {
+    setOpenRetweetPopUp(true)
   }
   return (
     <div className="tweet-footer">
@@ -49,8 +55,9 @@ export function TweetFooter({ numComments, numRetweets, numLikes }) {
         {numComments || 0}
       </span>
       <span>
-        <i className="fa fa-retweet"></i>
-        {numRetweets || 0}
+        <i className="fa fa-retweet" onClick={handleOnClickRetweet}></i>
+        {retweet || 0}
+        {openRetweetPopUp && <RetweetPopUp openRetweetPopUp={openRetweetPopUp} setOpenRetweetPopUp={setOpenRetweetPopUp} retweet={retweet} setRetweet={setRetweet}/>}
       </span>
       <span>
         <i className="fas fa-heart" onClick={handleOnClickLike}></i>

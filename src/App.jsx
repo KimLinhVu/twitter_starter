@@ -6,6 +6,7 @@ import Advertisements from "./components/Advertisements/Advertisements"
 import { codepathUserProfile, firstTweet, navLinks } from "./constants"
 import { useState } from "react"
 
+
 export default function App() {
   const [userProfile, setUserProfile] = useState(codepathUserProfile)
   const [tweets, setTweets] = useState([firstTweet])

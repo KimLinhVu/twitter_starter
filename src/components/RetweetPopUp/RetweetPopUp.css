@@ -1,0 +1,21 @@
+.overlay, .modal-container{
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+}
+
+.modal-container button {
+    padding: 20px 20px;
+    cursor: pointer;
+    position: relative;
+    top: 50%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    background-color: var(--twitter-blue);
+    border-radius: 5%;
+    color: white;
+}

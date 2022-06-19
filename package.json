@@ -7,9 +7,11 @@
     "dev": "vite dev"
   },
   "dependencies": {
+    "emoji-picker-react": "^3.5.1",
     "instant-noodles": "^0.0.3",
     "react": "<18.0.0",
-    "react-dom": "<18.0.0"
+    "react-dom": "<18.0.0",
+    "react-input-emoji": "^4.1.0"
   },
   "devDependencies": {
     "@testing-library/react": "12.1.4",
