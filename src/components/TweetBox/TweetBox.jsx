@@ -59,12 +59,16 @@ export function TweetBoxIcons() {
 export function TweetCharacterCount({tweetLength}) {
   // ADD CODE HERE
   let newClass = "tweet-length"
+  let length = 140 - tweetLength
+  if (length == 140){
+    length = ""
+  }
   if (140 - tweetLength < 0){
     newClass = "tweet-length red"
   } else {
     newClass = "tweet-length"
   }
-  return <span className={newClass}>{140 - tweetLength}</span>
+  return <span className={newClass}>{length}</span>
 }
 
 export function TweetSubmitButton({handleOnSubmit, disabled}) {
