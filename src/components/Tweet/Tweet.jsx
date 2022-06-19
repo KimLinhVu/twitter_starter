@@ -1,6 +1,7 @@
 import * as React from "react"
 import AvatarIcon from "../AvatarIcon/AvatarIcon"
 import { formatLikes } from "../../utils/format"
+import { useState } from "react"
 import "./Tweet.css"
 
 export default function Tweet({ tweet }) {
@@ -34,6 +35,10 @@ export function TweetUserInfo({ name, handle }) {
 }
 
 export function TweetFooter({ numComments, numRetweets, numLikes }) {
+  const [likes, setLikes] = useState(numLikes)
+  const handleOnClickLike = () => {
+    setLikes(likes + 1)
+  }
   return (
     <div className="tweet-footer">
       <span>
@@ -45,8 +50,8 @@ export function TweetFooter({ numComments, numRetweets, numLikes }) {
         {numRetweets || 0}
       </span>
       <span>
-        <i className="fas fa-heart"></i>
-        {formatLikes(numLikes ?? 0)}
+        <i className="fas fa-heart" onClick={handleOnClickLike}></i>
+        {formatLikes(likes ?? 0)}
       </span>
       <span>
         <i className="fa fa-envelope"></i>
