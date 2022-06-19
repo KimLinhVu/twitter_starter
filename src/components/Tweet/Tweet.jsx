@@ -13,7 +13,10 @@ export default function Tweet({ tweet }) {
 
       <div className="tweet-content">
         <TweetUserInfo name={tweet.name} handle={tweet.handle}/>
-        <p className="tweet-text">{tweet.text}</p>
+        {/* {<p className="tweet-text">{tweet.text}</p>} */}
+        <p className="tweet-text">{tweet.text.split(' ').map((word, idx) => (
+          word.startsWith("#") == true ? <span className="blue" key={idx}>{word} </span> : <span key={idx}>{word} </span>
+        ))}</p>
         <TweetFooter numComments={tweet.comments} numRetweets={tweet.retweets} numLikes={tweet.likes}/>
       </div>
     </div>
@@ -29,7 +32,7 @@ export function TweetUserInfo({ name, handle }) {
         <span className="dot">•</span>
         <span className="ts">1 min</span>
       </div>
-      <i className="fa fa-angle-down"></i>
+      <i className="fa fa-angle-down" ></i>
     </div>
   )
 }

@@ -6,7 +6,6 @@ export default function TweetInput({value, handleOnChange}) {
   const [newClass, setNewClass] = useState("")
   const handleOnFocus = () => {
     setNewClass("expanded")
-    console.log('here')
   }
   const handleOnBlur = () => {
     if (value.length == 0){
