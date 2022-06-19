@@ -8,7 +8,6 @@ export default function TweetBox({tweets, setTweets, userProfile, tweetText, set
   const handleOnTweetTextChange = (event) => {
     setTweetText(event.target.value)
     const length = event.target.value.length
-    console.log(length)
     if (length <= 0 || length > 140){
       setDisabled(true)
     }
